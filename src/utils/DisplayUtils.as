@@ -298,7 +298,15 @@
 			
 			
 		}
-		
-		
+
+		public static function scaleFromPoint(ob:*, sx:Number, sy:Number, pivot_point:Point):void {
+			var m:Matrix=ob.transform.matrix;
+			m.translate( -pivot_point.x, -pivot_point.y );
+			m.scale( sx, sy );
+			m.translate( pivot_point.x, pivot_point.y );
+			ob.transform.matrix = m;
+		}
+
+
 	}
 }
